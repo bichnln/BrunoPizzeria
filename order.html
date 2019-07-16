@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Assignment 2 - Pizzeria</title>
+	<meta charset="UTF-8">
+	<meta name="description"	content="Assignment 2" />
+	<meta name="keywords"		content="HTML, CSS, JavaScript" />
+	<meta name="author"			content="Le Ngoc Bich Nguyen" />
+	<meta name="viewport" 		content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/CSS"
+		  href="css/style.css"/>
+	<script src="js/OrderScript.js"> </script> <!-- link to javascript file for order -->
+</head>
+
+<body>
+<header class="pageHeader"> 
+	<h1> BRUNO PIZZERIA </h1>
+</header>
+<hr/>
+	<nav> 
+	
+	<ul class="nav"> 
+		<li> <a class="nav" href="index.html"> HOME </a> </li> 
+		<li> <a class="nav" href="register.html"> REGISTER </a> </li> 
+		<li> <a class="nav currentPage" href="order.html"> ORDER </a> </li> 
+		<li> <a class="nav" href="features.html"> FEATURES </a> </li> 
+	</ul>
+	
+</nav>
+
+<hr/>
+<main>
+<h2 class = "pageHeader2" > Delivery Details </h2>
+<p> Complete the form to order our food! </p>
+<form id="regform" method="post" action="http://mercury.ict.swin.edu.au/cchua/webdev/regtest.php">
+	<fieldset>
+		<legend class = "bigLegend" >Delivery Information</legend> <!-- big/main fieldset that contains smaller fieldset -->
+		
+		<div class="textinput">
+			<label for="contactNumber"> Contact Number </label>
+			<input type="text" name="contactNumber" id="contactNumber"/>
+		</div>
+		<div class="textinput">
+			<label for="emailForReceipt"> Email </label>
+			<input type="text" name="emailForReceipt" id="emailForReceipt"/>
+		</div>
+		<div id="deliveryOpt" class="radioinput"> <!-- can only choose one delivery method -->
+			<fieldset>
+				<legend> Delivery Option </legend>
+								
+					<input type="radio" name="deliveryOption" id="pickup" value="pickup"/>
+					<label for="pickup"> Pickup </label>
+					
+					<input type="radio" name="deliveryOption" id="delivery" value="delivery" />
+					<label for="delivery"> Delivery </label>
+			</fieldset>
+		</div>
+		<div id="deliveryAddr">
+		<fieldset>
+			<legend> Delivery Address </legend>
+			<div class="textinput">
+				<label for="streetAddress"> Address </label>
+				<input type="text" name="streetAddress" id="streetAddress"/>
+			</div>
+			<div class="textinput">
+				<label for="city"> City </label>
+				<input type="text" name="city" id="city"/>
+			</div>
+			<div class="textinput">
+			
+				<label for="postalCode"> Postal Code </label>
+				<input type="text" name="postalCode" id="postalCode"/>
+				
+			</div>
+			
+		</fieldset>
+			
+		<fieldset id="billingAddress"> 
+			<legend> Billing Address </legend>
+			<div class="checkboxInput"> <!-- automatic input is optional -->
+				<label for="sameAsDelivery"> Same as Delivery Address </label>
+				<input type="checkbox" name="sameAsDelivery" id="sameAsDelivery"/>
+			</div>
+			<div class="textinput">
+				<label for="billingStreetAddress"> Address </label>
+				<input type="text" name="billingStreetAddress" id="billingStreetAddress"/>
+			</div>
+			<div class="textinput">
+				<label for="billingCity"> City </label>
+				<input type="text" name="billingCity" id="billingCity"/>
+			</div>
+			<div class="textinput">
+			
+				<label for="billingPostalCode"> Postal Code </label>
+				<input type="text" name="billingPostalCode" id="billingPostalCode"/>
+				
+			</div>
+		</fieldset>
+		
+		</div> 
+		<div class="radioinput"> <!-- can only choose 1 payment method -->
+			<fieldset>
+				<legend> Payment Method </legend>
+				
+				<input type="radio" name="paymentMethod" id="payOnPickup" value="payOnPickup"/>
+				<label for="payOnPickup"> Pay On Pickup </label>
+				
+				<input type="radio" name="paymentMethod" id="onlinePayment" value="onlinePayment"/>
+				<label for="onlinePayment"> Online Payment </label>
+			</fieldset>
+		</div>	
+		<!-- credit card info is separated from above -->
+		<div id="creditCardInfo">
+			<div class="radioinput"> <!-- can only choose one card type -->
+				<fieldset> <legend>Type of card</legend>
+							<!-- master card -->	
+					<label>
+						<input type="radio" name="cardType" id = "MasterCard" value="Master"/>
+						<img src="images/mastercard.png" alt="Master Card" class="paymentImage"/>
+					</label>	
+							<!-- visa card -->
+					<label>
+						<input type="radio" name="cardType" id = "VisaCard" value="Visa"/>	
+						<img src="images/visacard.png" alt="Visa Card" class="paymentImage"/>
+					</label>
+							<!-- american express -->
+					<label>
+						<input type="radio" name="cardType" id="AmericanExp" value="AmericanExp"/>
+						<img src="images/americanexpress.png" alt="American Express" class="paymentImage"/>
+					</label>
+				</fieldset>
+			</div>	
+				<div class="textinput">
+					<label for="cardNumber"> Number On Card </label>
+					<input type="text" name="cardNumber" id="cardNumber" />
+					<span id="numberOfDigits"> </span> <!-- number of digits info shown when card type is chosen -->
+				</div>
+				
+				<div class="textinput">
+					<label for="expDate"> Expiry Date </label>
+					<input type="text" name="expDate" id="expDate"/>
+				</div>
+				<div class="textinput">
+					<label for="securityCode"> Security Code </label>
+					<input type="password" name="securityCode" id="securityCode"/> <!-- security code is similar to password, can not shown directly -->
+				</div>
+				
+		</div>
+	
+		
+		
+	</fieldset>
+		<!-- reset and submit button -->
+	<input class="buttoninput" type="reset" value="Reset" />
+	<input class="buttoninput" type="submit" value="Submit" />
+	
+</form>
+	
+</main>
+<aside> 
+<section> 
+	<header> <h3> CONTACT DETAIL </h3></header>
+	<p> Address: 108 Glenferrie Road, Hawthorn, Victoria </p>
+	<p> Phone: (08) 38582986   </p>
+	<p> Email: xyz.abc@gmail.com </p>
+	
+	<p> Images of Card Type were retrieved from <a href = "http://www.designbolts.com/wp-content/uploads/2013/05/Free-New_Credit-Card-Online_Payment-Method-Icons-_Vector-File-01.jpg"> click for details </a></p>
+</section>
+</aside>
+
+<footer>
+<ul class="nav"> 
+		<li> <a class="nav" href="index.html"> HOME </a> </li> 
+		<li> <a class="nav" href="register.html"> REGISTER </a> </li> 
+		<li> <a class="nav currentPage" href="order.html"> ORDER </a> </li> 
+		<li> <a class="nav" href="features.html"> FEATURES </a> </li> 
+	</ul>
+
+</footer>
+<hr/>
+
+
+
+</body>
+</html>
